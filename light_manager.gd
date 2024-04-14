@@ -21,6 +21,7 @@ func get_current_scene_lights() -> Array[Node]:
 	# add_lights_to_group(lights)
 	return lights
 
+
 func on_property_changed():
 	print("CHANGED")
 
@@ -39,13 +40,10 @@ func _enter_tree() -> void:
 		print(lights)
 		if lights.size() > 0:
 			update_light_list(lights)
-	
-	
+
 	# We connect to the scene change signal, so we can detect lights in other scenes
 	scene_changed.connect(on_scene_changed)
-	
-	
-	#update_light_list(lights)
+
 
 func on_scene_changed(root: Node):
 	if root != null:
@@ -61,9 +59,11 @@ func initialize_light_manager() -> void:
 	light_manager_docked_panel = light_manager_panel.instantiate()
 	light_manager_docked_panel.undo_redo = undo_redo
 	add_control_to_dock(DOCK_SLOT_RIGHT_BL, light_manager_docked_panel)
+	add_autoload_singleton("Utils", "res://addons/lightmanager/autoload/utils.gd")
 
 
 func destroy_light_manager() -> void:
+	remove_autoload_singleton("Utils")
 	remove_control_from_docks(light_manager_docked_panel)
 	light_manager_docked_panel.free()
 
@@ -71,6 +71,7 @@ func destroy_light_manager() -> void:
 func update_light_list(lights: Array[Node]) -> void:
 	light_manager_docked_panel.clear()
 	add_existing_lights_to_panel(lights)
+
 
 func add_existing_lights_to_panel(lights: Array[Node]) -> void:
 	print(get_tree().edited_scene_root)
