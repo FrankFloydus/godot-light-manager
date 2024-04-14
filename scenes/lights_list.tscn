@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxct0rdnfkas5"]
+
+[ext_resource type="Script" path="res://addons/lightmanager/scenes/lights_list.gd" id="1_86wsi"]
+[ext_resource type="PackedScene" uid="uid://c3w3uo72q7435" path="res://addons/lightmanager/scenes/light_entry.tscn" id="2_gte6t"]
+[ext_resource type="Texture2D" uid="uid://brtsjsvmyb7xw" path="res://addons/lightmanager/assets/fe_sync.png" id="3_h7d7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foyc1"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="LightsList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_86wsi")
+light_entry = ExtResource("2_gte6t")
+
+[node name="QuickSettings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="QuickSettings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_foyc1")
+
+[node name="MarginContainer" type="MarginContainer" parent="QuickSettings/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuickSettings/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="QuickSettings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quick Settings
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuickSettings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sync" type="Button" parent="QuickSettings/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/icon_max_width = 16
+text = "Re-Sync"
+icon = ExtResource("3_h7d7e")
+
+[node name="Disable Volumetrics" type="Button" parent="QuickSettings/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Disable all volumetrics"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuickSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="QuickSettings/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="LightEntry" parent="QuickSettings/ScrollContainer/List" instance=ExtResource("2_gte6t")]
+layout_mode = 2
+
+[node name="LightEntry2" parent="QuickSettings/ScrollContainer/List" instance=ExtResource("2_gte6t")]
+layout_mode = 2
+
+[node name="LightEntry3" parent="QuickSettings/ScrollContainer/List" instance=ExtResource("2_gte6t")]
+layout_mode = 2
+
+[node name="LightEntry4" parent="QuickSettings/ScrollContainer/List" instance=ExtResource("2_gte6t")]
+layout_mode = 2
+
+[node name="LightEntry5" parent="QuickSettings/ScrollContainer/List" instance=ExtResource("2_gte6t")]
+layout_mode = 2
+
+[node name="Empty" type="PanelContainer" parent="QuickSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="QuickSettings/Empty"]
+layout_mode = 2
+text = "Please select the main scene to view the light's list"

@@ -1,0 +1,226 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3w3uo72q7435"]
+
+[ext_resource type="Script" path="res://addons/lightmanager/scenes/light_entry.gd" id="1_robwk"]
+[ext_resource type="Texture2D" uid="uid://cvf2wx2y757kc" path="res://addons/lightmanager/assets/ion_copy.png" id="2_0c6dg"]
+[ext_resource type="Texture2D" uid="uid://dn7d01oqybdx7" path="res://addons/lightmanager/assets/ion_download.png" id="3_1qn81"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be8fr"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh7hp"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2h4u4"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfvuq"]
+content_margin_left = 10.0
+bg_color = Color(0.12549, 0.145098, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0gxa"]
+content_margin_left = 10.0
+bg_color = Color(0.164706, 0.113725, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkg75"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_yw33g"]
+font_names = PackedStringArray("Segoe UI")
+font_weight = 700
+
+[node name="LightEntry" type="PanelContainer"]
+offset_right = 488.0
+offset_bottom = 134.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_be8fr")
+script = ExtResource("1_robwk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sh7hp")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_2h4u4")
+text = "LightName"
+alignment = 0
+
+[node name="Copy Settings" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Copy Settings"
+theme_override_constants/icon_max_width = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_mfvuq")
+icon = ExtResource("2_0c6dg")
+alignment = 0
+icon_alignment = 1
+
+[node name="Paste Settings" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Paste Settings"
+theme_override_constants/icon_max_width = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0gxa")
+text = "
+"
+icon = ExtResource("3_1qn81")
+alignment = 0
+icon_alignment = 1
+
+[node name="LightToggle" type="CheckButton" parent="VBoxContainer/PanelContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+action_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LightColor" type="ColorPickerButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkg75")
+edit_alpha = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_yw33g")
+theme_override_font_sizes/font_size = 14
+text = "Energy"
+
+[node name="LightIntensity" type="HSlider" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 20.0
+step = 0.1
+value = 10.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_yw33g")
+theme_override_font_sizes/font_size = 14
+text = "Range
+"
+
+[node name="LightRange" type="HSlider" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.1
+value = 100.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Specular" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_yw33g")
+theme_override_font_sizes/font_size = 14
+text = "Specular"
+
+[node name="LightSpecular" type="HSlider" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 16.0
+step = 0.1
+value = 16.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Volumetric" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_yw33g")
+theme_override_font_sizes/font_size = 14
+text = "Volumentric Energy"
+
+[node name="LightVolumetric" type="HSlider" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/MarginContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 8.0
+step = 0.1
+value = 8.0
