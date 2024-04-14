@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/lightmanager/scenes/lights_list.gd" id="1_86wsi"]
 [ext_resource type="PackedScene" uid="uid://c3w3uo72q7435" path="res://addons/lightmanager/scenes/light_entry.tscn" id="2_gte6t"]
-[ext_resource type="Texture2D" uid="uid://brtsjsvmyb7xw" path="res://addons/lightmanager/assets/fe_sync.png" id="3_h7d7e"]
+[ext_resource type="Texture2D" uid="uid://brtsjsvmyb7xw" path="res://addons/lightmanager/assets/icons/fe_sync.png" id="3_h7d7e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foyc1"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://c3w3uo72q7435"]
 
 [ext_resource type="Script" path="res://addons/lightmanager/scenes/light_entry.gd" id="1_robwk"]
-[ext_resource type="Texture2D" uid="uid://cvf2wx2y757kc" path="res://addons/lightmanager/assets/ion_copy.png" id="2_0c6dg"]
-[ext_resource type="Texture2D" uid="uid://dn7d01oqybdx7" path="res://addons/lightmanager/assets/ion_download.png" id="3_1qn81"]
+[ext_resource type="Texture2D" uid="uid://cvf2wx2y757kc" path="res://addons/lightmanager/assets/icons/ion_copy.png" id="2_0c6dg"]
+[ext_resource type="Texture2D" uid="uid://dn7d01oqybdx7" path="res://addons/lightmanager/assets/icons/ion_download.png" id="3_1qn81"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be8fr"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
